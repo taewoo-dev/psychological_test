@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app import views as app_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', app_views.home, name="home"),
+    path('participants/', app_views.add_participant),
+    path('quiz/', app_views.quiz, name="quiz"),
+    path('questions/', app_views.get_questions),
+    path('submit/', app_views.submit, name="submit"),
+    path('results/', app_views.show_results, name="show_results")
 ]
