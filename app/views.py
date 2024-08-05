@@ -72,8 +72,9 @@ import plotly.utils
 def show_results(request):
     # 데이터베이스에서 데이터 조회
     participants_query = Participant.objects.all()
-    quizzes_query = Quiz.objects.select_related('participant', 'question').all()
+    quizzes_query = Quiz.objects.select_related('participant_id', 'question_id').all()
 
+    print("여기",quizzes_query)
     # pandas DataFrame으로 변환
     participants_data = [
         {"age": participant.age, "gender": participant.gender}
@@ -81,9 +82,9 @@ def show_results(request):
     ]
     quizzes_data = [
         {
-            "question_id": quiz.question.id,
+            "question_id": quiz.question_id.id,
             "chosen_answer": quiz.chosen_answer,
-            "participant_age": quiz.participant.age,
+            "participant_age": quiz.participant_id.age,
         }
         for quiz in quizzes_query
     ]

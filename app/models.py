@@ -15,11 +15,11 @@ class Participant(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
 
-class Admin(models.Model):
-    __tablename__ = "admin"
-
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
+# class Admin(models.Model):
+#     __tablename__ = "admin"
+#
+#     username = models.CharField(max_length=50)
+#     password = models.CharField(max_length=50)
 
 
 class Question(models.Model):
